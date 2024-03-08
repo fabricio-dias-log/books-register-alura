@@ -45,13 +45,13 @@
 .formulario__botao {
   background: var(--laranja);
   padding: 1em 4em;
+  margin: 40px 0px;
   font-weight: 700;
   font-size: 20px;
   line-height: 30px;
   border: none;
   color: var(--branco);
   cursor: pointer;
-  float: right;
 }
 
 .formulario__erro {
