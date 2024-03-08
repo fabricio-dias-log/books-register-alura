@@ -12,4 +12,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  cadastrar(){
+    console.log('Form submited!');
+  }
+
 }
