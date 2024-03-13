@@ -5,12 +5,10 @@
     <h3 class="principal__subtitulo">Dados pessoais</h3>
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="nome">Nome Completo</label>
-      <input name="nome" id="nome" class="campo__escrita" ngModel required minlength="2">
-      <div *ngIf="(f.controls['nome']?.invalid && f.controls['nome']?.touched) || f.controls['nome']?.dirty">
-        <span class="erro__texto" *ngIf="f.controls['nome']?.errors?.
-          ['required']">O campo de nome deve ser preenchido.</span>
-        <span class="erro__texto" *ngIf="f.controls['nome']?.errors?.
-          ['minlength']">O nome deve ter no mínimo 2 caracteres.</span>
+      <input name="nome" id="nome" class="campo__escrita" #nome="ngModel" ngModel required minlength="2">
+      <div *ngIf="(nome?.invalid && nome?.touched) || nome?.dirty">
+        <app-message message="O campo de nome deve ser preenchido." *ngIf="nome?.errors?.['required']"></app-message>
+        <app-message message="O nome deve ter no mínimo 2 caracteres." *ngIf="nome?.errors?.['minlength']"></app-message>
       </div>
     </div>
     <div class="formulario__dupla">
@@ -20,27 +18,19 @@
       </div>
       <div class="formulario__campo">
         <label class="campo__etiqueta" for="telefone">Contato</label>
-        <input name="telefone" id="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" class="campo__escrita" ngModel required pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"/>
-        <div *ngIf="(f.controls['telefone']?.invalid && f.controls['telefone']?.touched) || f.controls['telefone']?.dirty">
-          <span class="erro__texto" *ngIf="f.controls['telefone']?.errors?.['required']">
-            O campo de telefone deve ser preenchido.
-          </span>
-          <span class="erro__texto" *ngIf="f.controls['telefone']?.errors?.['pattern']">
-            O  campo de telefone está faltando algo. Deve seguir este padrão: "(XX) XXXXX-XXXX".
-          </span>
+        <input name="telefone" id="telefone" type="tel" placeholder="(XX) XXXXX-XXXX" class="campo__escrita" #telefone="ngModel" ngModel required pattern="(\(?\d{2}\)?\s?)(\d{5}\-?\d{4})"/>
+        <div *ngIf="(telefone?.invalid && telefone?.touched) || telefone?.dirty">
+          <app-message message="O campo de telefone deve ser preenchido." *ngIf="telefone?.errors?.['required']"></app-message>
+          <app-message message="O campo de telefone está faltando algo. Deve seguir este padrão: (XX) XXXXX-XXXX." *ngIf="telefone?.errors?.['pattern']"></app-message>
         </div>
       </div>
     </div>
     <div class="formulario__campo">
       <label class="campo__etiqueta" for="email">E-mail</label>
-      <input name="email" id="email" type="email" class="campo__escrita" ngModel required pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"/>
-      <div *ngIf="(f.controls['email']?.invalid && f.controls['email']?.touched) || f.controls['email']?.dirty">
-        <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['required']">
-          O campo de email deve ser preenchido.
-        </span>
-        <span class="erro__texto" *ngIf="f.controls['email']?.errors?.['pattern']">
-          O  campo de e-mail deve seguir este padrão: "exemplo@dominio.com".
-        </span>
+      <input name="email" id="email" type="email" class="campo__escrita" #email="ngModel" ngModel required pattern="^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$"/>
+      <div *ngIf="(email?.invalid && email?.touched) || email?.dirty">
+        <app-message message="O campo de email deve ser preenchido." *ngIf="email?.errors?.['required']"></app-message>
+        <app-message message="O  campo de e-mail deve seguir este padrão: exemplo@dominio.com." *ngIf="email?.errors?.['pattern']"></app-message>
       </div>
     </div>
 
