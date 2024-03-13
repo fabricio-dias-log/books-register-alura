@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
   cadastrar(form: NgForm){
     if (form.valid) {
       this.router.navigate(['/success']);
+    } else {
+      alert('Invalid Form');
     }
   }
 
