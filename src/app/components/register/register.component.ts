@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
     const cep = ev.target.value;
     if (cep.length !== '') {
       return this.cepService.getCep(cep).subscribe(result => {
-        console.log(result);
         this.setAddress(result, f);
       });
     }else{

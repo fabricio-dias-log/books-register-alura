@@ -11,6 +11,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MessageComponent } from './components/message/message.component';
 import { LegalAgeDirective } from './directives/legal-age.directive';
+import { ValidateCepDirective } from './directives/validate-cep.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LegalAgeDirective } from './directives/legal-age.directive';
     RegisterComponent,
     SuccessRegisterComponent,
     MessageComponent,
-    LegalAgeDirective
+    LegalAgeDirective,
+    ValidateCepDirective
   ],
   imports: [
     BrowserModule,
