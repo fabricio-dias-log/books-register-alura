@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import { CepConsultService } from 'src/app/services/cep-consult.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cepService: CepConsultService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,14 @@ export class RegisterComponent implements OnInit {
     } else {
       alert('Invalid Form');
     }
+  }
+
+  getCepData(ev: any){
+    const cep = ev.target.value;
+
+    return this.cepService.getCep(cep).subscribe(result => {
+      console.log(result);
+    });
   }
 
 }

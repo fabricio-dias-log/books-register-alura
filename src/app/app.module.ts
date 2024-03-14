@@ -7,7 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SuccessRegisterComponent } from './components/success-register/success-register.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 import { MessageComponent } from './components/message/message.component';
 import { LegalAgeDirective } from './directives/legal-age.directive';
 
@@ -24,7 +25,8 @@ import { LegalAgeDirective } from './directives/legal-age.directive';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
