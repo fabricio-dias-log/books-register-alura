@@ -23,11 +23,25 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  getCepData(ev: any){
+  getCepData(ev: any, f: NgForm){
     const cep = ev.target.value;
+    if (cep.length !== '') {
+      return this.cepService.getCep(cep).subscribe(result => {
+        console.log(result);
+        this.setAddress(result, f);
+      });
+    }else{
+      return;
+    }
+  }
 
-    return this.cepService.getCep(cep).subscribe(result => {
-      console.log(result);
+  setAddress(data: any, f: NgForm){
+    f.form.patchValue({
+      endereco: data.logradouro,
+      complemento: data.complemento,
+      bairro: data.bairro,
+      cidade: data.localidade,
+      estado: data.uf
     });
   }
 
