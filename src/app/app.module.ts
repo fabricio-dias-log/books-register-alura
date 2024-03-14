@@ -9,6 +9,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SuccessRegisterComponent } from './components/success-register/success-register.component';
 import {FormsModule} from "@angular/forms";
 import { MessageComponent } from './components/message/message.component';
+import { LegalAgeDirective } from './directives/legal-age.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MessageComponent } from './components/message/message.component';
     FooterComponent,
     RegisterComponent,
     SuccessRegisterComponent,
-    MessageComponent
+    MessageComponent,
+    LegalAgeDirective
   ],
   imports: [
     BrowserModule,
