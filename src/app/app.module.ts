@@ -7,6 +7,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SuccessRegisterComponent } from './components/success-register/success-register.component';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { MessageComponent } from './components/message/message.component';
+import { LegalAgeDirective } from './directives/legal-age.directive';
+import { ValidateCepDirective } from './directives/validate-cep.directive';
 
 @NgModule({
   declarations: [
@@ -14,11 +19,16 @@ import { SuccessRegisterComponent } from './components/success-register/success-
     HeaderComponent,
     FooterComponent,
     RegisterComponent,
-    SuccessRegisterComponent
+    SuccessRegisterComponent,
+    MessageComponent,
+    LegalAgeDirective,
+    ValidateCepDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
